@@ -4,15 +4,15 @@ import { ADD_REACTION } from '../../utils/mutations';
 
 const ReactionForm = ({ thoughtId }) => {
   const [reactionBody, setBody] = useState('');
-  const [characterCount, setCharacterCount] = useState(0);
+  // const [characterCount, setCharacterCount] = useState(0);
 
   const [addReaction, { error }] = useMutation(ADD_REACTION);
 
   const handleChange = event => {
-    if (event.target.value.length <= 280) {
+    // if (event.target.value.length <= 280) {
       setBody(event.target.value);
-      setCharacterCount(event.target.value.length);
-    }
+    //   setCharacterCount(event.target.value.length);
+    // }
   };
 
   const handleFormSubmit = async event => {
@@ -24,7 +24,7 @@ const ReactionForm = ({ thoughtId }) => {
         variables: { reactionBody, thoughtId }
       });
       setBody('');
-      setCharacterCount(0);
+      // setCharacterCount(0);
 
     } catch (e) {
       console.error(e);
@@ -33,10 +33,10 @@ const ReactionForm = ({ thoughtId }) => {
 
   return (
     <div>
-      <p className={`m-0 ${characterCount === 280 || error ? 'text-error' : ''}`}>
+      {/* <p className={`m-0 ${characterCount === 280 || error ? 'text-error' : ''}`}>
         Character Count: {characterCount}/280
         {error && <span className="ml-2">Something went wrong...</span>}
-      </p>
+      </p> */}
       <form className="flex-row justify-center justify-space-between-md align-stretch"
         onSubmit={handleFormSubmit}
       >
