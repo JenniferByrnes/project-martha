@@ -1,0 +1,5 @@
+# deep-thoughts
+bootcamp class project
+
+token
+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJuYW1lIjoiamVubiIsImVtYWlsIjoiamVubkBqZW5uLmNvbSIsIl9pZCI6IjYzNDhhZGJjMzQ4OThiNTQ0OTk1NWM0MiJ9LCJpYXQiOjE2NjU3MDc0NTIsImV4cCI6MTY2NTcxNDY1Mn0.F6fg5NMnKpDGMocyJB95f-QTyrLABAnoBc5uhHAQeN8"
