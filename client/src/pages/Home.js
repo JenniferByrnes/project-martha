@@ -23,34 +23,47 @@ const Home = () => {
       <Row >
         <Col md="auto">
           <Card
-          style={{
-            width: '18rem'
-          }}
+            style={{
+              width: '18rem'
+            }}
           >
             <img
               alt="Sample"
               src="https://picsum.photos/300/200"
             />
-
+            <CardBody>
+              <CardTitle tag="h5">
+                Card title
+              </CardTitle>
+              <CardSubtitle
+                className="mb-2 text-muted"
+                tag="h6"
+              >
+                Card subtitle
+              </CardSubtitle>
+              <CardText>
+                Some quick example text to build on the card title and make up the bulk of the card‘s content.
+              </CardText>
+            </CardBody>
           </Card>
         </Col>
         <Col>
           {/* Place for a new thought for a logged in user. */}
-          <div className="flex-row justify-space-between">
+          <Row className="flex-row justify-space-between">
             {loggedIn && (
               <div className="mb-3">
                 <ThoughtForm />
               </div>
             )}
             {/* Place list of thoughts. */}
-            <div className={`mb-3 ${loggedIn && 'col-lg-8'}`}>
+            <div className={`mb-3 ${loggedIn}`}>
               {loading ? (
                 <div>Loading...</div>
               ) : (
                 <ThoughtList thoughts={thoughts} />
               )}
             </div>
-          </div>
+          </Row>
         </Col>
       </Row>
     </Container>

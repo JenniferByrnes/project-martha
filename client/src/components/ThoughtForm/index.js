@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { Container, Card, CardBody, CardTitle, CardSubtitle, Button, CardText, Col, Row } from 'reactstrap';
 import { useMutation } from '@apollo/client';
 import { ADD_THOUGHT } from '../../utils/mutations';
 import { QUERY_THOUGHTS, QUERY_ME } from '../../utils/queries';
@@ -56,7 +56,6 @@ const ThoughtForm = () => {
       console.error(e);
     }
   };
-
 
   return (
     <div>
