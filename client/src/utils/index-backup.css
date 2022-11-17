@@ -31,7 +31,7 @@ body {
   line-height: 1.5;
   font-size: 20px;
   color: var(--dark);
-  background-color: #eceeee;
+  background-color: var(--quatrinary);
 }
 
 h1,
@@ -129,6 +129,26 @@ nav a:hover {
 
 .btn-inline {
   display: inline;
+}
+
+/* CARDS */
+.card {
+  margin: 0;
+  border-radius: var(--border-radius);
+  background-color: var(--secondary);
+  color: var(--dark);
+}
+
+.card-header {
+  color: var(--dark);
+  margin: 0;
+  padding: 0.625rem;
+  border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
+}
+
+.card-body {
+  padding: 2.5%;
+  font-size: 1.4rem;
 }
 
 /* FORM */

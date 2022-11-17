@@ -1,0 +1,9 @@
+:root {
+  --primary: #497573;
+  --secondary: #ffffff;
+  --tertiary: #b2c2c1;
+  --quatrinary: #cadbda;
+  --light: #e1f5f4;
+  --dark: #000202;
+  --error: rgb(228, 46, 1);
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Container, Card, CardBody, CardTitle, CardHeader, Button, CardText, Col, Row } from 'reactstrap';
 
 const ThoughtList = ({ thoughts, title }) => {
   if (!thoughts.length) {
@@ -11,8 +12,8 @@ const ThoughtList = ({ thoughts, title }) => {
       <h3>{title}</h3>
       {thoughts &&
         thoughts.map(thought => (
-          <div key={thought._id} className="card mb-3">
-            <p className="card-header">
+          <Card key={thought._id} className="mb-3">
+            <CardHeader className="card-header">
               <Link
                 to={`/profile/${thought.username}`}
                 style={{ fontWeight: 700 }}
@@ -21,17 +22,17 @@ const ThoughtList = ({ thoughts, title }) => {
                 {thought.username}
               </Link>{' '}
               thought on {thought.createdAt}
-            </p>
+            </CardHeader>
             <div className="card-body">
-  <Link to={`/thought/${thought._id}`}>
-    <p>{thought.thoughtText}</p>
-    <p className="mb-0">
-      Reactions: {thought.reactionCount} || Click to{' '}
-      {thought.reactionCount ? 'see' : 'start'} the discussion!
-    </p>
-  </Link>
-</div>
-          </div>
+              <Link to={`/thought/${thought._id}`}>
+                <p>{thought.thoughtText}</p>
+                <p className="mb-0">
+                  Reactions: {thought.reactionCount} || Click to{' '}
+                  {thought.reactionCount ? 'see' : 'start'} the discussion!
+                </p>
+              </Link>
+            </div>
+          </Card>
         ))}
     </div>
   );
