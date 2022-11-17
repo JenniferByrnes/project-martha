@@ -25,16 +25,12 @@ const SingleThought = props => {
     <div>
       <div className="card mb-3">
         <p className="card-header">
-          <span style={{ fontWeight: 700 }} className="text-light">
-            {thought.username}
-          </span>{' '}
-          thought on {thought.createdAt}
+         {thought.createdAt}
         </p>
         <div className="card-body">
           <p>{thought.thoughtText}</p>
         </div>
       </div>
-      {thought.reactionCount > 0 && <ReactionList reactions={thought.reactions} />}
       {Auth.loggedIn() && <ReactionForm thoughtId={thought._id} />}
     </div>
   );

@@ -3,6 +3,7 @@ import { Container, Card, CardBody, CardTitle, CardSubtitle, Button, CardText, C
 import { useQuery } from '@apollo/client';
 import { QUERY_THOUGHTS, QUERY_ME_BASIC } from '../utils/queries';
 import ThoughtList from '../components/ThoughtList';
+import FriendList from '../components/FriendList';
 import Auth from '../utils/auth';
 import ThoughtForm from '../components/ThoughtForm';
 
@@ -20,38 +21,38 @@ const Home = () => {
 
   return (
     <Container>
-      <Row >
-        <Col md="auto">
-          <Card
+      <Row xs="2">
+      <Col>
+        <Card
           style={{
             width: '18rem'
           }}
-          >
-            <img
-              alt="Sample"
-              src="https://picsum.photos/300/200"
-            />
+        >
+          <img
+            alt="Sample"
+            src="https://picsum.photos/300/200"
+          />
 
-          </Card>
-        </Col>
-        <Col>
-          {/* Place for a new thought for a logged in user. */}
-          <div className="flex-row justify-space-between">
-            {loggedIn && (
-              <div className="mb-3">
-                <ThoughtForm />
-              </div>
-            )}
-            {/* Place list of thoughts. */}
-            <div className={`mb-3 ${loggedIn && 'col-lg-8'}`}>
-              {loading ? (
-                <div>Loading...</div>
-              ) : (
-                <ThoughtList thoughts={thoughts} />
-              )}
+        </Card>
+      </Col>
+      <Col>
+      {/* Place for a new thought for a logged in user. */}
+        <div className="flex-row justify-space-between">
+          {loggedIn && (
+            <div className="mb-3">
+              <ThoughtForm />
             </div>
+          )}
+          {/* Place list of thoughts. */}
+          <div className={`mb-3 ${loggedIn && 'col-lg-8'}`}>
+            {loading ? (
+              <div>Loading...</div>
+            ) : (
+              <ThoughtList thoughts={thoughts} />
+            )}
           </div>
-        </Col>
+        </div>
+      </Col>
       </Row>
     </Container>
   );
