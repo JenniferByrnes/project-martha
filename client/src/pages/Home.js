@@ -22,6 +22,7 @@ const Home = () => {
     <Container>
       <Row >
         <Col md="auto">
+          {/* Info card on the left side */}
           <Card
             style={{
               width: '18rem'
@@ -48,14 +49,15 @@ const Home = () => {
           </Card>
         </Col>
         <Col>
-          {/* Place for a new thought for a logged in user. */}
+        {/* Column for blog posts */}
           <Row className="flex-row justify-space-between">
             {loggedIn && (
               <div className="mb-3">
+                          {/* Place for a new thought for a logged in user. This will not show for an unlogged in user */}
                 <ThoughtForm />
               </div>
             )}
-            {/* Place list of thoughts. */}
+            {/* Blog articles. */}
             <div className={`mb-3 ${loggedIn}`}>
               {loading ? (
                 <div>Loading...</div>

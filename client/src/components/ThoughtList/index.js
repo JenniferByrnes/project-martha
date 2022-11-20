@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Card, CardTitle, CardSubtitle, CardText, Col, Row } from 'reactstrap';
+import { Card, CardTitle, CardBody, CardSubtitle, CardText, Col, Row } from 'reactstrap';
 
 const ThoughtList = ({ thoughts, title }) => {
   if (!thoughts.length) {
-    return <h3>No Thoughts Yet</h3>;
+    return <h3>No Blogs Yet</h3>;
   }
 
   return (
@@ -22,12 +22,10 @@ const ThoughtList = ({ thoughts, title }) => {
               </Col>
               <Col>
                 <CardTitle tag="h4">
-                  Card title
+                  Blog title - if desired (yes?)
                 </CardTitle>
-                <CardText className="card-header">
-                  {thought.createdAt}
-                </CardText>
-                <div className="card-body">
+
+                <CardBody>
                   <Link
                     to={`/thought/${thought._id}`}
                     style={{
@@ -36,7 +34,10 @@ const ThoughtList = ({ thoughts, title }) => {
                   >
                     <CardText >{thought.thoughtText}</CardText>
                   </Link>
-                </div>
+                </CardBody>
+                <CardText className="card-header">
+                  {thought.createdAt}
+                </CardText>
               </Col>
             </Row>
           </Card>

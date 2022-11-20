@@ -1,18 +1,23 @@
 import React, { useState } from 'react';
-import { Container, Card, CardBody, CardTitle, CardSubtitle, Button, CardText, Col, Row } from 'reactstrap';
+import { Card, Col, Row, Form, FormGroup, Input } from 'reactstrap';
 import { useMutation } from '@apollo/client';
 import { ADD_THOUGHT } from '../../utils/mutations';
 import { QUERY_THOUGHTS, QUERY_ME } from '../../utils/queries';
+import BlogImage from '../BlogImage';
 
 const ThoughtForm = () => {
 
   const [thoughtText, setText] = useState('');
-  // const [characterCount, setCharacterCount] = useState(0);
+  const [imageURL, setImageURL] = useState('');
+
+  const handleImage = savedURL => {
+    setImageURL(savedURL);
+  }
 
   const [addThought, { error }] = useMutation(ADD_THOUGHT, {
     update(cache, { data: { addThought } }) {
-  
-        // could potentially not exist yet, so wrap in a try/catch
+
+      // could potentially not exist yet, so wrap in a try/catch
       try {
         // update me array's cache
         const { me } = cache.readQuery({ query: QUERY_ME });
@@ -23,7 +28,7 @@ const ThoughtForm = () => {
       } catch (e) {
         console.warn("First thought insertion by user!")
       }
-  
+
       // update thought array's cache
       const { thoughts } = cache.readQuery({ query: QUERY_THOUGHTS });
       cache.writeQuery({
@@ -35,8 +40,8 @@ const ThoughtForm = () => {
 
   const handleChange = event => {
     // if (event.target.value.length <= 280) {
-      setText(event.target.value);
-      // setCharacterCount(event.target.value.length);
+    setText(event.target.value);
+    // setCharacterCount(event.target.value.length);
     // }
   };
 
@@ -58,21 +63,45 @@ const ThoughtForm = () => {
   };
 
   return (
-    <div>
-      <form className="flex-row justify-center justify-space-between-md align-stretch"
+    <Card className="my-3" >
+      <Form className="p-3"
         onSubmit={handleFormSubmit}
       >
-        <textarea
-          placeholder="Here's a new thought..."
-          value={thoughtText}
-          className="form-input col-12 col-md-9"
-          onChange={handleChange}
-        ></textarea>
-        <button className="btn col-12 col-md-3" type="submit">
-          Submit
-        </button>
-      </form>
-    </div>
+        <Row>
+          <Col md="auto">
+            <FormGroup>
+              <BlogImage handleImage={handleImage} />
+            </FormGroup>
+          </Col>
+          <Col>
+            <button className="btn" type="submit">
+              Submit
+            </button>
+          </Col>
+        </Row>
+        <Row>
+          <FormGroup>
+            <Input
+              id="blogTitle"
+              name="title1"
+              placeholder="Blog title - if desired (yes?)"
+            />
+          </FormGroup>
+
+        </Row>
+        <Row>
+        <FormGroup>
+          <Input
+            id="thoughtText"
+            placeholder="Blog Text."
+            name="text"
+            type="textarea"
+            onChange={handleChange}
+          />
+        </FormGroup>
+        </Row>
+      </Form>
+    </Card >
   );
 };
 
