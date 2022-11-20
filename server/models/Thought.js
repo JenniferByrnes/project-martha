@@ -3,6 +3,15 @@ const dateFormat = require('../utils/dateFormat');
 
 const thoughtSchema = new Schema(
   {
+    thoughtTitle: {
+      type: String,
+      required: 'This post needs a title',
+      minlength: 1
+    },
+    thoughtImage: {
+      type: String,
+      minlength: 1
+    },
     thoughtText: {
       type: String,
       required: 'You need to leave a thought!',

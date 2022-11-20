@@ -24,11 +24,13 @@ db.once('open', async () => {
   let createdThoughts = [];
   for (let i = 0; i < 100; i += 1) {
     const thoughtText = faker.lorem.words(Math.round(Math.random() * 20) + 1);
+    const thoughtTitle = faker.lorem.words(Math.round(Math.random() * 2) + 1);
+    const thoughtImage = 'https://picsum.photos/150/100';
 
     const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
     const { username, _id: userId } = createdUsers.ops[randomUserIndex];
 
-    const createdThought = await Thought.create({ thoughtText, username });
+    const createdThought = await Thought.create({ thoughtTitle, thoughtImage, thoughtText, username });
 
     const updatedUser = await User.updateOne(
       { _id: userId },

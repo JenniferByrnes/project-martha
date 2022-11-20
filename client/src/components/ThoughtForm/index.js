@@ -7,11 +7,12 @@ import BlogImage from '../BlogImage';
 
 const ThoughtForm = () => {
 
-  const [thoughtText, setText] = useState('');
-  const [imageURL, setImageURL] = useState('');
+  const [thoughtText, setThoughtText] = useState('');
+  const [thoughtTitle, setThoughtTitle] = useState('');
+  const [thoughtImage, setThoughtImage] = useState('');
 
   const handleImage = savedURL => {
-    setImageURL(savedURL);
+    setThoughtImage(savedURL);
   }
 
   const [addThought, { error }] = useMutation(ADD_THOUGHT, {
@@ -40,7 +41,14 @@ const ThoughtForm = () => {
 
   const handleChange = event => {
     // if (event.target.value.length <= 280) {
-    setText(event.target.value);
+      setThoughtText(event.target.value);
+    // setCharacterCount(event.target.value.length);
+    // }
+  };
+
+  const handleChangeTitle = event => {
+    // if (event.target.value.length <= 280) {
+      setThoughtTitle(event.target.value);
     // setCharacterCount(event.target.value.length);
     // }
   };
@@ -51,11 +59,13 @@ const ThoughtForm = () => {
     try {
       // add thought to database
       await addThought({
-        variables: { thoughtText }
+        variables: { thoughtTitle, thoughtImage, thoughtText }
       });
 
       // clear form value
-      setText('');
+      setThoughtText('');
+      setThoughtTitle('');
+      setThoughtImage('');
       // setCharacterCount(0);
     } catch (e) {
       console.error(e);
@@ -82,9 +92,10 @@ const ThoughtForm = () => {
         <Row>
           <FormGroup>
             <Input
-              id="blogTitle"
+              id="thoughtTitle"
               name="title1"
               placeholder="Blog title - if desired (yes?)"
+              onChange={handleChangeTitle}
             />
           </FormGroup>
 

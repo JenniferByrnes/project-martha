@@ -17,12 +17,14 @@ const ThoughtList = ({ thoughts, title }) => {
               <Col md="auto">
                 <img
                   alt="Sample"
-                  src="https://picsum.photos/150/100"
+                  src={thought.thoughtImage}
+                  width='100px'
+                  height='100px'
                 />
               </Col>
               <Col>
                 <CardTitle tag="h4">
-                  Blog title - if desired (yes?)
+                {thought.thoughtTitle}
                 </CardTitle>
 
                 <CardBody>

@@ -23,13 +23,20 @@ const SingleThought = props => {
     <div>
       <div className="card mb-3">
         <p className="card-header">
-         {thought.createdAt}
+          {thought.createdAt}
         </p>
+        <img
+          alt="Sample"
+          src={thought.thoughtImage}
+        />
+        <div className="card-body">
+          <p>{thought.thoughtTitle}</p>
+        </div>
         <div className="card-body">
           <p>{thought.thoughtText}</p>
         </div>
       </div>
-      {Auth.loggedIn() }
+      {Auth.loggedIn()}
     </div>
   );
 };
