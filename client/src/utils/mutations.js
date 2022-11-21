@@ -24,46 +24,15 @@ export const ADD_USER = gql`
   }
 `;
 
-export const ADD_FRIEND = gql`
-  mutation addFriend($id: ID!) {
-    addFriend(friendId: $id) {
-      _id
-      username
-      friendCount
-      friends {
-        _id
-        username
-      }
-    }
-  }
-`;
-
 export const ADD_THOUGHT = gql`
-  mutation addThought($thoughtText: String!) {
-    addThought(thoughtText: $thoughtText) {
+  mutation addThought($thoughtTitle: String!, $thoughtImage: String!, $thoughtText: String!) {
+    addThought(thoughtTitle: $thoughtTitle, thoughtImage: $thoughtImage, thoughtText: $thoughtText) {
       _id
+      thoughtTitle
+      thoughtImage
       thoughtText
       createdAt
       username
-      reactionCount
-      reactions {
-        _id
-      }
-    }
-  }
-`;
-
-export const ADD_REACTION = gql`
-  mutation addReaction($thoughtId: ID!, $reactionBody: String!) {
-    addReaction(thoughtId: $thoughtId, reactionBody: $reactionBody) {
-      _id
-      reactionCount
-      reactions {
-        _id
-        reactionBody
-        createdAt
-        username
-      }
     }
   }
 `;
