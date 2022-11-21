@@ -1,5 +1,4 @@
 # project-martha
 Project for Martha
 
-random token
-"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJuYW1lIjoiamVubiIsImVtYWlsIjoiamVubkBqZW5uLmNvbSIsIl9pZCI6IjYzNDhhZGJjMzQ4OThiNTQ0OTk1NWM0MiJ9LCJpYXQiOjE2NjU3MDc0NTIsImV4cCI6MTY2NTcxNDY1Mn0.F6fg5NMnKpDGMocyJB95f-QTyrLABAnoBc5uhHAQeN8"
+This is a blog and photography project in progress.  It is written using the MERN stack with Firebase for storing images.
