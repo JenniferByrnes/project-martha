@@ -1,5 +1,4 @@
 import React from 'react';
-import { Container, Card, CardBody, CardTitle, CardSubtitle, Button, CardText, Col, Row } from 'reactstrap';
 import { useQuery } from '@apollo/client';
 import { QUERY_THOUGHTS } from '../utils/queries';
 import ThoughtList from '../components/ThoughtList';
@@ -16,39 +15,37 @@ const Home = () => {
   const loggedIn = Auth.loggedIn();
 
   return (
-    <Container>
-      <Row >
-        <Col md="auto">
+    <div class="container mx-auto px-4">
+      <div className="grid grid-cols-4 gap-4" >
+        <div className="..." md="auto">
           {/* Info card on the left side */}
-          <Card
-            style={{
-              width: '18rem'
-            }}
-          >
-            <img
-              alt="Sample"
-              src="https://picsum.photos/300/200"
-            />
-            <CardBody>
-              <CardTitle tag="h5">
-                Card title
-              </CardTitle>
-              <CardSubtitle
-                className="mb-2 text-muted"
-                tag="h6"
-              >
-                Card subtitle
-              </CardSubtitle>
-              <CardText>
-                Some quick example text to build on the card title and make up the bulk of the card‘s content.
-              </CardText>
-            </CardBody>
-
-          </Card>
-        </Col>
-        <Col>
+          <div className="flex justify-center">
+            <div className="rounded-lg shadow-lg bg-white max-w-sm">
+              <a href="#!">
+                <img className="rounded-t-lg"
+                  alt="Sample"
+                  src="https://picsum.photos/300/200"
+                />
+              </a>
+              <div className="p-6">
+                <h2 className="text-gray-900 text-xl font-medium mb-2 text-sky-500">
+                  Card title
+                </h2>
+                <h4
+                  className="mb-2 text-muted"
+                >
+                  Card subtitle
+                </h4>
+                <p>
+                  Some quick example text to build on the card title and make up the bulk of the card‘s content.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="col-span-3 ...">
           {/* Column for blog posts */}
-          <Row className="flex-row justify-space-between">
+          <div className="flex-row justify-space-between">
             {loggedIn && (
               <div className="mb-3">
                 {/* Place for a new thought for a logged in user. This will not show for an unlogged in user */}
@@ -63,10 +60,10 @@ const Home = () => {
                 <ThoughtList thoughts={thoughts} />
               )}
             </div>
-          </Row>
-        </Col>
-      </Row>
-    </Container>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 

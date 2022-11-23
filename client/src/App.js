@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
-
+import Photos from './pages/Photos';
 import Login from './pages/Login';
 import NoMatch from './pages/NoMatch';
 import SingleThought from './pages/SingleThought';
@@ -37,13 +37,17 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className="flex-column justify-flex-start min-100-vh">
+        <div className="flex-column justify-flex-start min-100-vh bg-neutral-100">
           <Header />
           <div className="container">
             <Routes>
               <Route
                 path="/"
                 element={<Home />}
+              />
+              <Route
+                path="/photos"
+                element={<Photos />}
               />
               <Route
                 path="/login"

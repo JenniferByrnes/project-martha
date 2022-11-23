@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Card, CardTitle, CardBody, CardSubtitle, CardText, Col, Row } from 'reactstrap';
 
 const ThoughtList = ({ thoughts, title }) => {
   if (!thoughts.length) {
@@ -8,41 +7,43 @@ const ThoughtList = ({ thoughts, title }) => {
   }
 
   return (
-    <div>
+    <div className="w-full">
+      {/* Leftover from code with multiple users */}
       <h3>{title}</h3>
       {thoughts &&
         thoughts.map(thought => (
-          <Card key={thought._id} className="mb-3 p-3">
-            <Row>
-              <Col md="auto">
-                <img
-                  alt="Sample"
-                  src={thought.thoughtImage}
-                  width='100px'
-                  height='100px'
-                />
-              </Col>
-              <Col>
-                <CardTitle tag="h4">
-                {thought.thoughtTitle}
-                </CardTitle>
+          // Flexbox for all thoughts
+          <div key={thought._id} className="flex justify-center mb-3 p-3">
+            {/* Card */}
+            <div className="flex flex-col md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg mb-3 p-3">
+              <img className=" w-full md:h-auto object-cover md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"
+                alt="Sample"
+                src={thought.thoughtImage}
+                width='96px'
+                height='96px'
+              />
 
-                <CardBody>
+              <div class="p-6 flex flex-col justify-start">
+                <h5 class="text-gray-900 text-xl font-medium mb-2">
+                  {thought.thoughtTitle}
+                </h5>
+
+                <p className="text-gray-700 text-base mb-4">
                   <Link
                     to={`/thought/${thought._id}`}
                     style={{
                       textDecoration: 'none'
                     }}
                   >
-                    <CardText >{thought.thoughtText}</CardText>
+                    <p className="text-gray-700 text-base mb-4">{thought.thoughtText}</p>
                   </Link>
-                </CardBody>
-                <CardText className="card-header">
+                </p>
+                <p className="text-gray-600 text-xs">
                   {thought.createdAt}
-                </CardText>
-              </Col>
-            </Row>
-          </Card>
+                </p>
+              </div>
+            </div>
+          </div>
         ))}
     </div>
   );

@@ -1,4 +1,8 @@
-:root {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* :root {
   --primary: #497573;
   --secondary: #ffffff;
   --tertiary: #b2c2c1;
@@ -120,7 +124,7 @@ nav a:hover {
   background-color: var(--secondary);
   transition: all 0.5s;
 }
-
+*/
 .btn:hover,
 .pill:hover {
   color: var(--secondary);
