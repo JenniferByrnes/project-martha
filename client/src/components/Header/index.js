@@ -27,8 +27,6 @@ const Header = () => {
           <h1>Photos</h1>
         </Link>
   
-  
-
           {Auth.loggedIn() ? (
             <ul className="hidden md:flex nav-bar-menu mx-auto space-x-20">
             <li className="nav-link">

@@ -7,45 +7,48 @@ const ThoughtList = ({ thoughts, title }) => {
   }
 
   return (
-    <div className="w-full">
-      {/* Leftover from code with multiple users */}
-      <h3>{title}</h3>
+    // Container for the right side - all blog posts
+    <>
+      {/* if there are blog posts, map through them */}
       {thoughts &&
         thoughts.map(thought => (
           // Flexbox for all thoughts
-          <div key={thought._id} className="flex justify-center mb-3 p-3">
+          <div key={thought._id} className="flex justify-center m-3 p-3 ">
             {/* Card */}
-            <div className="flex flex-col md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg mb-3 p-3">
-              <img className=" w-full md:h-auto object-cover md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"
-                alt="Sample"
-                src={thought.thoughtImage}
-                width='96px'
-                height='96px'
-              />
+            <div className="min-w-full rounded-2xl bg-white shadow-lg p-3 m-3">
+              {/* Card links to expanded blog post */}
+              <Link className="group flex flex-col  md:flex-row md:max-w-xl"
+                to={`/thought/${thought._id}`}
+                style={{
+                  textDecoration: 'none'
+                }}
+              >
+                {/* Optional Image */}
+                <img className=" w-full md:h-auto object-cover md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"
+                  alt="Sample"
+                  src={thought.thoughtImage}
+                  width='96px'
+                  height='96px'
+                />
+                {/* Blog post text */}
+                <div class="group-hover:text-blue-500 p-6 flex flex-col justify-start">
+                  {/* Blog post title */}
+                  <h5 class="group-hover:text-blue-500 text-gray-900 text-xl font-medium mb-2">
+                    {thought.thoughtTitle}
+                  </h5>
+                  {/* Blog post body */}
+                  <p className="group-hover:text-blue-500 text-gray-700 text-base mb-4">{thought.thoughtText}</p>
 
-              <div class="p-6 flex flex-col justify-start">
-                <h5 class="text-gray-900 text-xl font-medium mb-2">
-                  {thought.thoughtTitle}
-                </h5>
-
-                <p className="text-gray-700 text-base mb-4">
-                  <Link
-                    to={`/thought/${thought._id}`}
-                    style={{
-                      textDecoration: 'none'
-                    }}
-                  >
-                    <p className="text-gray-700 text-base mb-4">{thought.thoughtText}</p>
-                  </Link>
-                </p>
-                <p className="text-gray-600 text-xs">
-                  {thought.createdAt}
-                </p>
-              </div>
+                  {/* Blog post footer */}
+                  <p className="group-hover:text-blue-500 text-gray-600 text-xs">
+                    {thought.createdAt}
+                  </p>
+                </div>
+              </Link>
             </div>
           </div>
         ))}
-    </div>
+    </>
   );
 };
 
