@@ -16,12 +16,12 @@ const Home = () => {
 
   return (
     // Page Container
-    <div class="container mx-auto px-4">
+    <>
       {/* Divide the container into columns */}
       <div className="grid grid-cols-4 gap-4" >
         <div className="..." md="auto">
           {/* left column */}
-          <div className="flex justify-center h-screen items-center">
+          <div className="flex justify-center h-screen items-center ">
             {/* Card */}
             <div className="rounded-2xl shadow-lg max-w-sm bg-white">
               {/* Image */}
@@ -69,7 +69,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -20,18 +20,24 @@ const SingleThought = props => {
   }
 
   return (
+    // detail view of one post
     <div>
+      {/* Card  */}
       <div className="card mb-3">
+        {/* Header */}
         <p className="card-header">
           {thought.createdAt}
         </p>
+        {/* Image */}
         <img
           alt="Sample"
           src={thought.thoughtImage}
         />
+        {/* Card Body */}
         <div className="card-body">
           <p>{thought.thoughtTitle}</p>
         </div>
+        {/* Card Body */}
         <div className="card-body">
           <p>{thought.thoughtText}</p>
         </div>

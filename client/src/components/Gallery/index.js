@@ -6,7 +6,10 @@ function Gallery({ currentCategory }) {
     name,
     description
   } = currentCategory;
+
+  
   return (
+    // render the photos for the catergory
     <section >
       <h1>{(name)}</h1>
       <p>{description}</p>

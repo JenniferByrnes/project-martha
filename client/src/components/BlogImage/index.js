@@ -52,12 +52,15 @@ export default function BlogImage({ handleImage }) {
   // }
 
   return (
+    // image display and selection
     <div>
+      {/* type file allows user to upload file */}
       <input
         accept="image/*"
         type="file"
         onChange={imageChange}
       />
+      {/* preview selected file */}
       {selectedImage && (
         <div style={styles.preview}>
           <img
@@ -65,11 +68,13 @@ export default function BlogImage({ handleImage }) {
             style={styles.image}
             alt="Thumb"
           />
+          {/* user can choose to remove previewed image */}
           <button onClick={removeSelectedImage} style={styles.delete}>
             Remove This Image
           </button>
         </div>
       )}
+      {/* save selected file to Firebase*/}
       <button onClick={uploadFile}> Save file.</button>
       {imageUrls.map((url) => {
         { handleImage(url) };
@@ -79,7 +84,7 @@ export default function BlogImage({ handleImage }) {
   );
 }
 
-// Just some styles
+// Styles - not tailwindCSS - needs work
 const styles = {
   container: {
     display: "flex",

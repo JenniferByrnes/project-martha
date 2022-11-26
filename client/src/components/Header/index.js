@@ -15,7 +15,9 @@ const Header = () => {
   };
 
   return (
+    // Header - Title and Nav
     <header className="bg-secondary mb-4 py-2 flex-row align-center">
+      {/* Container for header */}
       <div className="container flex-row justify-space-between-lg justify-center align-center">
         {/* link to home */}
         <Link to="/">
@@ -26,26 +28,28 @@ const Header = () => {
         <Link to="/photos">
           <h1>Photos</h1>
         </Link>
-  
-          {Auth.loggedIn() ? (
-            <ul className="hidden md:flex nav-bar-menu mx-auto space-x-20">
+
+        {/* Logged in user sees Logout option, otherwise Login/Signin option */}
+        {Auth.loggedIn() ? (
+          <ul className="hidden md:flex nav-bar-menu mx-auto space-x-20">
             <li className="nav-link">
               {/* <Link to="/profile">My Posts</Link> */}
               <a href="/" onClick={logout}>
                 Logout
               </a>
             </li>
-            </ul>
-          ) : (
-            <ul className="hidden md:flex nav-bar-menu mx-auto space-x-20">
+          </ul>
+        ) : (
+
+          <ul className="hidden md:flex nav-bar-menu mx-auto space-x-20">
             <li className="nav-link">
               <Link to="/login">Login</Link>
-              </li>
-              <li className="nav-link">
+            </li>
+            <li className="nav-link">
               <Link to="/signup">Signup</Link>
-              </li>
-              </ul>
-          )}
+            </li>
+          </ul>
+        )}
 
         {/* Nav Hamburger Menu */}
         <div onClick={userClick} className="md:hidden z-10 justify-items-end">
@@ -58,6 +62,7 @@ const Header = () => {
             ? "hidden"
             : "absolute top-0 left-0 w-full h-screen bg-[#dae8e3] text-black flex flex-col justify-center items-center"
         }>
+          {/* Logged in user sees Logout option, otherwise Login/Signin option */}
           {Auth.loggedIn() ? (
             <li className="nav-link py-6 text-3xl">
               {/* <Link to="/profile">My Posts</Link> */}

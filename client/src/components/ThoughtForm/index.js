@@ -72,20 +72,24 @@ const ThoughtForm = () => {
   };
 
   return (
-    <div className="max-w-sm w-full lg:max-w-full lg:flex flex-col md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg mb-3 p-3 w-full">
+    // Container for new blog post
+    <div className="max-w-sm w-full lg:max-w-full lg:flex flex-col md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg mb-3 p-3">
+      {/* Input form */}
       <form className="p-3"
         onSubmit={handleFormSubmit}
       >
-        
+        {/* First row */}
         <div className="row">
-          {/* This is the image selector */}
+          {/* Image container */}
           <div className="col py-3 px-6 border-b border-gray-300" md="auto">
+            {/* Image sub container */}
             <div className="form-group mb-6">
               <BlogImage handleImage={handleImage} />
             </div>
           </div>
-          {/* This is the blog title */}
+          {/* Next row */}
           <div classname="row">
+            {/* Blog title */}
             <div className="form-group mb-6">
               <input
                 id="thoughtTitle"
@@ -94,7 +98,6 @@ const ThoughtForm = () => {
                 onChange={handleChangeTitle}
               />
             </div>
-
           </div>
           {/* This is the blog text */}
           <div classname="row">

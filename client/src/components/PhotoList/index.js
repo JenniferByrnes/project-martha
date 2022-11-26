@@ -103,19 +103,26 @@ const PhotoList = ({ category }) => {
     },
   ]);
 
+  // Filter for photos
   const currentPhotos = photos.filter((photo) => photo.category === category);
 
+  // State for photo
   const [currentPhoto, setCurrentPhoto] = useState();
 
+  // Toggle for modal
   const toggleModal = (image, i) => {
     setCurrentPhoto({ ...image, index: i });
     setIsModalOpen(!isModalOpen);
   }
+
   return (
+    // Contaiter for Photo List
     <div>
+      {/* Modal if needed */}
       {isModalOpen && (
         <Modal currentPhoto={currentPhoto} onClose={toggleModal} />
       )}
+      {/* Photos by category */}
       <div className="flex-row">
         {currentPhotos.map((image, i) => (
           <img
