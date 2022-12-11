@@ -40,3 +40,22 @@
 section {
   flex: 1;
 }
+
+
+/* Form fields are used on the Contact, Login, and SignUp forms */
+.form-container {
+  @apply w-full bg-stone-50 border-8 border-pcGreen border-double shadow-lg shadow-pcGreen md:mt-0 xl:p-0 items-center justify-center;
+}
+
+.form-inner-container {
+  @apply p-6 space-y-4 md:space-y-6 sm:p-8 items-center justify-center;
+}
+
+.form-field {
+  @apply bg-gray-50 border-2 border-pcGreen hover:shadow-lg w-full p-3
+}
+
+.form-button {
+  @apply text-center w-full md:py-2 shadow-md shadow-pcGreen text-lg border-8 border-double border-pcGreen hover:bg-pcGreen hover:shadow-lg 
+}
+
