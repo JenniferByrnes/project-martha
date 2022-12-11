@@ -21,29 +21,27 @@ const SingleThought = props => {
 
   return (
     // detail view of one post
-    <div>
+    <section className="container mx-auto p-6 ">
       {/* Card  */}
-      <div className="card mb-3">
-        {/* Header */}
-        <p className="card-header">
-          {thought.createdAt}
-        </p>
-        {/* Image */}
+      <div className="card mb-3 bg-white shadow-2xl rounded-2xl">
+
+        {/* Card Image */}
         <img
           alt="Sample"
           src={thought.thoughtImage}
+          className="mx-auto "
         />
         {/* Card Body */}
-        <div className="card-body">
-          <p>{thought.thoughtTitle}</p>
-        </div>
-        {/* Card Body */}
-        <div className="card-body">
+        <div className="text-center">
+          <p className="text-2xl py-3">{thought.thoughtTitle}</p>
           <p>{thought.thoughtText}</p>
+          <p className="text-start pt-3 italic">
+            {thought.createdAt}
+          </p>
         </div>
       </div>
       {Auth.loggedIn()}
-    </div>
+    </section>
   );
 };
 
