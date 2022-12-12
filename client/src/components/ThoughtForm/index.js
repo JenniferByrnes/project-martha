@@ -73,15 +73,16 @@ const ThoughtForm = () => {
 
   return (
     // Container for new blog post
-    <div className="max-w-sm w-full lg:max-w-full lg:flex flex-col md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg mb-3 p-3">
-      {/* Input form */}
-      <form className="p-3"
-        onSubmit={handleFormSubmit}
-      >
-        {/* First row */}
-        <div className="row">
+    <div className="flex justify-center">
+      {/* Card */}
+
+      <div className="w-full lg:max-w-full lg:flex flex-col md:flex-row md:max-w-xl rounded-2xl bg-white shadow-lg mx-6 my-3 md:p-3 ">
+        {/* Input form */}
+        <form className="p-3 w-full"
+          onSubmit={handleFormSubmit}
+        >
           {/* Image container */}
-          <div className="col py-3 px-6 border-b border-gray-300" md="auto">
+          <div className="col py-3 px-6 " md="auto">
             {/* Image sub container */}
             <div className="form-group mb-6">
               <BlogImage handleImage={handleImage} />
@@ -90,11 +91,9 @@ const ThoughtForm = () => {
           {/* Next row */}
           <div classname="row">
             {/* Blog title */}
-            <div className="form-group mb-6">
-              <input
-                id="thoughtTitle"
-                name="title1"
-                placeholder="Blog title - if desired (yes?)"
+            <div className="mb-6">
+              <label for="title1" className="block mb-2 text-sm font-medium ">Blog Post Title</label>
+              <input type="text" name="title1" id="thoughtTitle" className="  border-2 border-pcGreen w-full p-3 mb-4 focus: outline-pcGreen rounded"
                 onChange={handleChangeTitle}
               />
             </div>
@@ -102,54 +101,29 @@ const ThoughtForm = () => {
           {/* This is the blog text */}
           <div classname="row">
             <div className="form-group mb-6">
-              <textarea className="form-control block      
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
-      "
+              <label for="text" className="block mb-2 text-sm font-medium ">Blog Content</label>
+              <textarea className="block      
+                  w-full
+                  bg-clip-padding
+                  border-2 border-pcGreen p-3 mb-4 
+                  focus: outline-pcGreen
+                  rounded "
                 id="thoughtText"
                 rows="5"
-                placeholder="Blog Text..."
                 name="text"
                 onChange={handleChange}
               />
             </div>
           </div>
           {/* This is the submit button */}
-          <div class="grid grid-cols-2 gap-4">
-            <button className="px-6
-      py-2.5
-      bg-blue-600
-      text-white
-      font-medium
-      text-xs
-      leading-tight
-      uppercase
-      rounded
-      shadow-md
-      hover:bg-blue-700 hover:shadow-lg
-      focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
-      active:bg-blue-800 active:shadow-lg
-      transition
-      duration-150
-      ease-in-out" type="submit">
-              Submit
-            </button>
+          <div className="flex justify-center">
+            <button type="submit" className="form-button max-w-fit px-4">Submit</button>
           </div>
-        </div>
-
-      </form>
+        </form>
+      </div >
     </div >
+
+
   );
 };
 

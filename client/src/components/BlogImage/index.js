@@ -53,7 +53,7 @@ export default function BlogImage({ handleImage }) {
 
   return (
     // image display and selection
-    <div>
+    <div className="container">
       {/* type file allows user to upload file */}
       <input
         accept="image/*"

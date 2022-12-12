@@ -15,9 +15,9 @@ const ThoughtList = ({ thoughts, title }) => {
           // Flexbox for each thought
           <div key={thought._id} className="flex justify-center ">
             {/* Card */}
-            <div className="w-full  m-1">
+            <div className="w-full m-1">
               {/* Card links to expanded blog post */}
-              <Link className="group flex flex-col md:flex-row  items-center shadow-2xl md:max-w-full rounded-2xl bg-white"
+              <Link className="group flex flex-col md:flex-row items-center shadow-2xl md:max-w-full rounded-2xl bg-white"
                 to={`/thought/${thought._id}`}
                 style={{
                   textDecoration: 'none'

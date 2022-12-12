@@ -50,13 +50,13 @@ export default function Signup() {
         <div className="form-container">
           <div className="form-inner-container">
             <h1 className="items-center justify-center">
-              Please provide an email and password
+              Please provide an email and password - Martha
             </h1>
             {/* Form for input - contains submit button */}
             <form className="space-y-4 md:space-y-6" onSubmit={handleFormSubmit}>
               <div>
                 <label htmlFor="email" className="block mb-2 text-sm font-medium ">Your email</label>
-                <input type="email" name="email" id="email" className="form-field  mb-4 focus: outline-pcGreen" placeholder="name@email.com" onChange={handleChange} />
+                <input type="email" name="email" id="email" className="form-field  mb-4 focus: outline-pcGreen" onChange={handleChange} />
               </div>
               {/* password input */}
               <div>

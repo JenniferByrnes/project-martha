@@ -49,12 +49,12 @@ const HomeBlog = () => {
         </div>
 
         {/* Right section of container */}
-        <div className="flex-grow shrink">
+        <div className="flex-grow shrink ">
           {/* Column for blog posts */}
-          <div className="justify-space-between">
+          <div className="justify-space-between ">
             {/* Check if user is logged in */}
             {loggedIn && (
-              <div className="mb-3 bg-zinc-500">
+              <div className="mb-3 ">
                 {/* logged in user can add post */}
                 <ThoughtForm />
               </div>
