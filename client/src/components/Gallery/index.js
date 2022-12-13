@@ -11,8 +11,8 @@ function Gallery({ currentCategory }) {
   return (
     // render the photos for the catergory
     <section >
-      <h1>{(name)}</h1>
-      <p>{description}</p>
+      {/* <h1>{(name)}</h1> */}
+      <p className='text-xl'>{description}</p>
       <PhotoList category={currentCategory.name} />
     </section>
   )
