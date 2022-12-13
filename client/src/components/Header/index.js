@@ -34,7 +34,7 @@ const Header = () => {
               <Link to="/photos">Photos</Link>
             </li>
             <li className="hover:text-pcCoral hover:border-b hover:border-pcCoral">
-              <Link to="/">Blog</Link>
+              <Link to="/blog">Blog</Link>
             </li>
             {Auth.loggedIn() ? (
               <>

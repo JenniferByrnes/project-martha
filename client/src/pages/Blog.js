@@ -5,7 +5,7 @@ import ThoughtList from '../components/ThoughtList';
 import Auth from '../utils/auth';
 import ThoughtForm from '../components/ThoughtForm';
 
-const HomeBlog = () => {
+const Blog = () => {
   // use useQuery hook to make query request
   const { loading, data } = useQuery(QUERY_THOUGHTS);
 
@@ -77,4 +77,4 @@ const HomeBlog = () => {
   );
 };
 
-export default HomeBlog;
+export default Blog;
