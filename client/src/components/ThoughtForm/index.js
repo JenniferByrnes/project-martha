@@ -26,7 +26,7 @@ const ThoughtForm = () => {
           data: { me: { ...me, thoughts: [...me.thoughts, addThought] } },
         });
       } catch (e) {
-        console.warn("First thought insertion by user!")
+        console.warn("First post!")
       }
 
       // update thought array's cache
@@ -39,17 +39,11 @@ const ThoughtForm = () => {
   });
 
   const handleChange = event => {
-    // if (event.target.value.length <= 280) {
     setThoughtText(event.target.value);
-    // setCharacterCount(event.target.value.length);
-    // }
   };
 
   const handleChangeTitle = event => {
-    // if (event.target.value.length <= 280) {
     setThoughtTitle(event.target.value);
-    // setCharacterCount(event.target.value.length);
-    // }
   };
 
   const handleFormSubmit = async event => {
@@ -65,7 +59,7 @@ const ThoughtForm = () => {
       setThoughtText('');
       setThoughtTitle('');
       setThoughtImage('');
-      // setCharacterCount(0);
+
     } catch (e) {
       console.error(e);
     }
@@ -75,7 +69,6 @@ const ThoughtForm = () => {
     // Container for new blog post
     <div className="flex justify-center">
       {/* Card */}
-
       <div className="w-full lg:max-w-full lg:flex flex-col md:flex-row md:max-w-xl rounded-2xl bg-white shadow-lg mx-6 my-3 md:p-3 ">
         {/* Input form */}
         <form className="p-3 w-full"
@@ -122,8 +115,6 @@ const ThoughtForm = () => {
         </form>
       </div >
     </div >
-
-
   );
 };
 

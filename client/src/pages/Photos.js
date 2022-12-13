@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
 import SubNav from '../components/SubNav';
+import Gallery from '../components/Gallery'
 
 export default function Photos() {
 
   const [categories] = useState([
     {
-      name: "commercial",
+      name: "outside",
       description:
-        "Photos of grocery stores, food trucks, and other commercial projects",
+        "Your breathtaking view from the house",
     },
-    { name: "portraits", description: "Portraits of people in my life" },
-    { name: "food", description: "Delicious delicacies" },
+    { name: "living", description: "Main living spaces" },
+    { name: "bedrooms", description: "Photos of the three beautifully decorated bedrooms" },
     {
-      name: "landscape",
-      description: "Fields, farmhouses, waterfalls, and the beauty of nature",
+      name: "other",
+      description: "Pictures that defy categorization.",
     },
   ]);
 
@@ -29,15 +30,8 @@ export default function Photos() {
         contactSelected={contactSelected}
         setContactSelected={setContactSelected}
       ></SubNav>
-      <main>
-        {/* {!contactSelected ? (
-          <>
+      <main className="container mx-auto p-6" >
             <Gallery currentCategory={currentCategory}></Gallery>
-            <About></About>
-          </>
-        ) : (
-          <ContactForm></ContactForm>
-        )} */}
       </main>
     </div>
   );

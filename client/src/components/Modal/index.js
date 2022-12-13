@@ -10,7 +10,7 @@ function Modal({ onClose, currentPhoto }) {
         {/* Modal title */}
         <h3 className="modalTitle">{name}</h3>
         {/* Modal image */}
-        <img src={require(`../../assets/large/${category}/${index}.jpg`)} alt="current category" />
+        <img src={require(`../../assets/images/${category}/${index}.jpg`)} alt="current category" />
         {/* Modal description */}
         <p>{description}</p>
         {/* Close button */}

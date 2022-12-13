@@ -27,7 +27,7 @@ const SingleThought = props => {
 
         {/* Card Image */}
         <img
-          alt="Sample"
+          alt="blog inspiration"
           src={thought.thoughtImage}
           className="mx-auto "
         />
