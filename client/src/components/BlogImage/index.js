@@ -102,7 +102,7 @@ const styles = {
   delete: {
     cursor: "pointer",
     padding: 15,
-    background: "red",
+    background: "orange",
     color: "white",
     border: "none",
   },
