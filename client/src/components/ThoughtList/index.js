@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Card, CardTitle, CardBody, CardSubtitle, CardText, Col, Row } from 'reactstrap';
 
 const ThoughtList = ({ thoughts, title }) => {
   if (!thoughts.length) {
@@ -8,43 +7,48 @@ const ThoughtList = ({ thoughts, title }) => {
   }
 
   return (
-    <div>
-      <h3>{title}</h3>
+    // Fills all blog posts
+    <>
+      {/* if there are blog posts, map through them */}
       {thoughts &&
         thoughts.map(thought => (
-          <Card key={thought._id} className="mb-3 p-3">
-            <Row>
-              <Col md="auto">
-                <img
+          // Flexbox for each thought
+          <div key={thought._id} className="flex justify-center ">
+            {/* Card */}
+            <div className="w-full m-1">
+              {/* Card links to expanded blog post */}
+              <Link className="group flex flex-col md:flex-row items-center shadow-2xl md:max-w-full rounded-2xl bg-white"
+                to={`/thought/${thought._id}`}
+                style={{
+                  textDecoration: 'none'
+                }}
+              >
+                {/* Optional Image */}
+                <img className="object-cover md:w-48 md:h-48 mt-2 md:mt-0 rounded-t-lg md:rounded-none md:rounded-l-lg"
                   alt="Sample"
                   src={thought.thoughtImage}
-                  width='100px'
-                  height='100px'
+                  width='96px'
+                  height='96px'
                 />
-              </Col>
-              <Col>
-                <CardTitle tag="h4">
-                {thought.thoughtTitle}
-                </CardTitle>
+                {/* Blog post text */}
+                <div class="group-hover:text-blue-500 p-2 md:p-6 flex flex-col items-center md:items-start">
+                  {/* Blog post title */}
+                  <h5 class="group-hover:text-blue-500 text-gray-900 text-xl font-medium mb-2">
+                    {thought.thoughtTitle}
+                  </h5>
+                  {/* Blog post body */}
+                  <p className="group-hover:text-blue-500 text-gray-700 text-base mb-2 md:mb-4">{thought.thoughtText}</p>
 
-                <CardBody>
-                  <Link
-                    to={`/thought/${thought._id}`}
-                    style={{
-                      textDecoration: 'none'
-                    }}
-                  >
-                    <CardText >{thought.thoughtText}</CardText>
-                  </Link>
-                </CardBody>
-                <CardText className="card-header">
-                  {thought.createdAt}
-                </CardText>
-              </Col>
-            </Row>
-          </Card>
+                  {/* Blog post footer */}
+                  <p className="group-hover:text-blue-500 text-gray-600 text-xs">
+                    {thought.createdAt}
+                  </p>
+                </div>
+              </Link>
+            </div>
+          </div>
         ))}
-    </div>
+    </>
   );
 };
 

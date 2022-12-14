@@ -34,6 +34,7 @@ const Profile = () => {
   }
 
   return (
+    // This function is likely not needed with only one blogger
     <div>
       <div className="flex-row mb-3">
         <h2 className="bg-dark text-secondary p-3 display-inline-block">

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Card, Col, Row, Form, FormGroup, Input } from 'reactstrap';
 import { useMutation } from '@apollo/client';
 import { ADD_THOUGHT } from '../../utils/mutations';
 import { QUERY_THOUGHTS, QUERY_ME } from '../../utils/queries';
@@ -27,7 +26,7 @@ const ThoughtForm = () => {
           data: { me: { ...me, thoughts: [...me.thoughts, addThought] } },
         });
       } catch (e) {
-        console.warn("First thought insertion by user!")
+        console.warn("First post!")
       }
 
       // update thought array's cache
@@ -40,17 +39,11 @@ const ThoughtForm = () => {
   });
 
   const handleChange = event => {
-    // if (event.target.value.length <= 280) {
-      setThoughtText(event.target.value);
-    // setCharacterCount(event.target.value.length);
-    // }
+    setThoughtText(event.target.value);
   };
 
   const handleChangeTitle = event => {
-    // if (event.target.value.length <= 280) {
-      setThoughtTitle(event.target.value);
-    // setCharacterCount(event.target.value.length);
-    // }
+    setThoughtTitle(event.target.value);
   };
 
   const handleFormSubmit = async event => {
@@ -66,53 +59,62 @@ const ThoughtForm = () => {
       setThoughtText('');
       setThoughtTitle('');
       setThoughtImage('');
-      // setCharacterCount(0);
+
     } catch (e) {
       console.error(e);
     }
   };
 
   return (
-    <Card className="my-3" >
-      <Form className="p-3"
-        onSubmit={handleFormSubmit}
-      >
-        <Row>
-          <Col md="auto">
-            <FormGroup>
+    // Container for new blog post
+    <div className="flex justify-center">
+      {/* Card */}
+      <div className="w-full lg:max-w-full lg:flex flex-col md:flex-row md:max-w-xl rounded-2xl bg-white shadow-lg mx-6 my-3 md:p-3 ">
+        {/* Input form */}
+        <form className="p-3 w-full"
+          onSubmit={handleFormSubmit}
+        >
+          {/* Image container */}
+          <div className="col py-3 px-6 " md="auto">
+            {/* Image sub container */}
+            <div className="form-group mb-6">
               <BlogImage handleImage={handleImage} />
-            </FormGroup>
-          </Col>
-          <Col>
-            <button className="btn" type="submit">
-              Submit
-            </button>
-          </Col>
-        </Row>
-        <Row>
-          <FormGroup>
-            <Input
-              id="thoughtTitle"
-              name="title1"
-              placeholder="Blog title - if desired (yes?)"
-              onChange={handleChangeTitle}
-            />
-          </FormGroup>
-
-        </Row>
-        <Row>
-        <FormGroup>
-          <Input
-            id="thoughtText"
-            placeholder="Blog Text."
-            name="text"
-            type="textarea"
-            onChange={handleChange}
-          />
-        </FormGroup>
-        </Row>
-      </Form>
-    </Card >
+            </div>
+          </div>
+          {/* Next row */}
+          <div classname="row">
+            {/* Blog title */}
+            <div className="mb-6">
+              <label for="title1" className="block mb-2 text-sm font-medium ">Blog Post Title</label>
+              <input type="text" name="title1" id="thoughtTitle" className="  border-2 border-pcGreen w-full p-3 mb-4 focus: outline-pcGreen rounded"
+                onChange={handleChangeTitle}
+              />
+            </div>
+          </div>
+          {/* This is the blog text */}
+          <div classname="row">
+            <div className="form-group mb-6">
+              <label for="text" className="block mb-2 text-sm font-medium ">Blog Content</label>
+              <textarea className="block      
+                  w-full
+                  bg-clip-padding
+                  border-2 border-pcGreen p-3 mb-4 
+                  focus: outline-pcGreen
+                  rounded "
+                id="thoughtText"
+                rows="5"
+                name="text"
+                onChange={handleChange}
+              />
+            </div>
+          </div>
+          {/* This is the submit button */}
+          <div className="flex justify-center">
+            <button type="submit" className="form-button max-w-fit px-4">Submit</button>
+          </div>
+        </form>
+      </div >
+    </div >
   );
 };
 

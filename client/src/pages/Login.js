@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
+import { Link } from 'react-router-dom';
+import image from '../assets/images/BurfordLove.jpeg'
 
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: '', password: '' });
@@ -33,40 +35,45 @@ const Login = (props) => {
   };
 
   return (
-    <main className='flex-row justify-center mb-4'>
-      <div className='col-12 col-md-6'>
-        <div className='card'>
-          <h4 className='card-header'>Login</h4>
-          <div className='card-body'>
-            <form onSubmit={handleFormSubmit}>
-              <input
-                className='form-input'
-                placeholder='Your email'
-                name='email'
-                type='email'
-                id='email'
-                value={formState.email}
-                onChange={handleChange}
-              />
-              <input
-                className='form-input'
-                placeholder='******'
-                name='password'
-                type='password'
-                id='password'
-                value={formState.password}
-                onChange={handleChange}
-              />
-              <button className='btn d-block w-100' type='submit'>
-                Submit
-              </button>
+    <section className="flex flex-col items-center justify-center px-6 py-8 pt-[60px] mx-auto md:h-screen lg:py-0 text-stone-800">
+      <h1 className="flex items-center mb-6 text-3xl border-b-4 border-pcCoral">
+        Account Login
+      </h1>
+      <div
+        className="relative flex flex-col m-6 space-y-10 bg-white shadow-2xl rounded-2xl md:flex-row md:space-y-0 md:m-0"
+      >
+        {/* Left Side */}
+        <div className="form-container">
+          <div className="form-inner-container">
+            <h1 className="md:text-2xl items-center justify-center">
+              Login if you are Martha.
+            </h1>
+            <form className="space-y-4 md:space-y-6 " onSubmit={handleFormSubmit}>
+              <div>
+                <label for="email" className="block mb-2 text-sm font-medium ">Your email</label>
+                <input type="email" name="email" id="email" className="form-field  mb-4 focus: outline-pcGreen" onChange={handleChange} />
+              </div>
+              <div>
+                <label for="password" className="block mb-2 text-sm font-medium ">Password</label>
+                <input type="password" name="password" placeholder="••••••••" className="form-field  mb-4 focus: outline-pcGreen" onChange={handleChange} />
+              </div>
+              {error ? (
+                <div>
+                  <p className="error-text">The provided credentials are incorrect</p>
+                </div>
+              ) : null}
+              <div className="flex items-center justify-evenly space-x-2">
+                <button type="submit" className="form-button">Submit</button>
+                <button type="submit" className="form-button"><Link to="/signup">Sign Up?</Link></button>
+              </div>
             </form>
-            {error && <div>Login failed</div>}
           </div>
         </div>
+        {/* Right Side */}
+        <img src={image} alt="" className="w-[430px] hidden md:block" />
       </div>
-    </main>
+    </section>
   );
-};
+}
 
 export default Login;
