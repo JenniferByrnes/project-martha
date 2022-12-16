@@ -6,7 +6,7 @@ const Home = () => {
 
   return (
     // Page Container
-    <section className="container mx-auto p-6 bg-pcTan" >
+    <section className="container mx-auto p-6 bg-pcGreen" >
       {/* Divide the container into columns */}
       <div className="flex flex-col justify-center items-center" >
 
