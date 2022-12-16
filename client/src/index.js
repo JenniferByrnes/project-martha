@@ -4,9 +4,6 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import './index.css';
 
-// import './indexColors.css';
-
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
