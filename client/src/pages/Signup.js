@@ -54,13 +54,17 @@ export default function Signup() {
             </h1>
             {/* Form for input - contains submit button */}
             <form className="space-y-4 md:space-y-6" onSubmit={handleFormSubmit}>
+            <div>
+                <label htmlFor="name" className="block mb-2 text-sm font-medium ">User Name</label>
+                <input type="name" name="name" id="name" className="form-field  mb-4 focus: outline-pcGreen" onChange={handleChange} />
+              </div>
               <div>
                 <label htmlFor="email" className="block mb-2 text-sm font-medium ">Your email</label>
                 <input type="email" name="email" id="email" className="form-field  mb-4 focus: outline-pcGreen" onChange={handleChange} />
               </div>
               {/* password input */}
               <div>
-                <label for="password" className="block mb-2 text-sm font-medium ">Password</label>
+                <label htmlFor="password" className="block mb-2 text-sm font-medium ">Password</label>
                 <input type="password" name="password" placeholder="••••••••" className="form-field  mb-4 focus: outline-pcGreen" onChange={handleChange} />
               </div>
               <div className="flex items-center justify-evenly space-x-2">
