@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 import image from '../assets/images/BurfordTogether.jpeg'
 
 export default function Signup() {
-  const [formState, setFormState] = useState({ email: '', password: '' });
-  const [addUser] = useMutation(ADD_USER);
+  const [formState, setFormState] = useState({ username: '', email: '', password: '' });
+  const [addUser, { error }] = useMutation(ADD_USER);
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -26,13 +26,14 @@ export default function Signup() {
     // use try/catch instead of promises to handle errors
     try {
       // execute addUser mutation and pass in variable data from form
+
+
       const { data } = await addUser({
         variables: { ...formState }
       });
 
       Auth.login(data.addUser.token);
     } catch (e) {
-      console.error(e);
     }
   };
 
@@ -55,8 +56,8 @@ export default function Signup() {
             {/* Form for input - contains submit button */}
             <form className="space-y-4 md:space-y-6" onSubmit={handleFormSubmit}>
             <div>
-                <label htmlFor="name" className="block mb-2 text-sm font-medium ">User Name</label>
-                <input type="name" name="name" id="name" className="form-field  mb-4 focus: outline-pcGreen" onChange={handleChange} />
+                <label htmlFor="username" className="block mb-2 text-sm font-medium ">User Name</label>
+                <input type="username" name="username" id="username" className="form-field  mb-4 focus: outline-pcGreen" onChange={handleChange} />
               </div>
               <div>
                 <label htmlFor="email" className="block mb-2 text-sm font-medium ">Your email</label>
