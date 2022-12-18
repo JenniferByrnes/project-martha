@@ -4,10 +4,15 @@ import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 import { Link } from 'react-router-dom';
 import image from '../assets/images/BurfordLove.jpeg'
+// import visibilityIcon from '../assets/svg/visibilityIcon.svg'
 
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [login, { error }] = useMutation(LOGIN_USER);
+  const { email, password } = formState
+
+    // allows user to see password
+    const [showPassword, setShowPassword] = useState(false)
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -55,8 +60,13 @@ const Login = (props) => {
               </div>
               <div>
                 <label for="password" className="block mb-2 text-sm font-medium ">Password</label>
-                <input type="password" name="password" placeholder="••••••••" className="form-field  mb-4 focus: outline-pcGreen" onChange={handleChange} />
+                <input type={showPassword ? 'text' : 'password'} name="password" placeholder="••••••••" className="form-field  mb-4 focus: outline-pcGreen" 
+                value={password}
+                onChange={handleChange} />
+                {/* <img src={visibilityIcon} alt="show password" className="showPassword" onclick={() => setShowPassword((prevState) => !prevState)}/> */}
               </div>
+              <Link to='/forgot-password'
+              className='forgotPasswordLink'>Forgot Password</Link>
               {error ? (
                 <div>
                   <p className="error-text">The provided credentials are incorrect</p>

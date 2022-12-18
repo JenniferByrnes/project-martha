@@ -53,38 +53,49 @@ export default function BlogImage({ handleImage }) {
 
   return (
     // image display and selection
-    <div className="container">
+    <div className="container pt-5">
       {/* type file allows user to upload file */}
       <input
         accept="image/*"
         type="file"
+        className="bg-pcGreen border-pcGreen border-4"
         onChange={imageChange}
       />
-      {/* preview selected file */}
-      {selectedImage && (
-        <div style={styles.preview}>
-          <img
-            src={URL.createObjectURL(selectedImage)}
-            style={styles.image}
-            alt="Thumb"
-          />
-          {/* user can choose to remove previewed image */}
-          <button onClick={removeSelectedImage} style={styles.delete}>
-            Remove This Image
-          </button>
-        </div>
-      )}
-      {/* save selected file to Firebase*/}
-      <button onClick={uploadFile}> Save file.</button>
+      <button
+        onClick={uploadFile}
+      > Save file.</button>
       {imageUrls.map((url) => {
         { handleImage(url) };
         return <img src={url} alt='' width='50%' />;
       })}
+      {/* preview selected file */}
+      {selectedImage && (
+        <div className="flex flex-col mt-4 " >
+          <img
+            src={URL.createObjectURL(selectedImage)}
+            className="max-w-100 max-h-96"
+            alt="Thumb"
+          />
+          {/* user can choose to remove previewed image */}
+
+          <button
+            onClick={removeSelectedImage}
+            className="cursor-pointer p-3 mt-5 w-fit mx-auto rounded-full bg-pcGreen"
+          >Changed your mind?
+          </button>
+
+        </div>
+      )}
+      {/* save selected file to Firebase*/}
+
+
+
     </div>
   );
 }
 
 // Styles - not tailwindCSS - needs work
+
 const styles = {
   container: {
     display: "flex",
@@ -92,18 +103,7 @@ const styles = {
     justifyContent: "center",
     alignItems: "center",
     paddingTop: 50,
-  },
-  preview: {
-    marginTop: 50,
-    display: "flex",
-    flexDirection: "column",
-  },
-  image: { maxWidth: "100%", maxHeight: 320 },
-  delete: {
-    cursor: "pointer",
-    padding: 15,
-    background: "orange",
+    background: "green",
     color: "white",
-    border: "none",
   },
 };
