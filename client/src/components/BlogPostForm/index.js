@@ -4,11 +4,11 @@ import { ADD_THOUGHT } from '../../utils/mutations';
 import { QUERY_THOUGHTS, QUERY_ME } from '../../utils/queries';
 import BlogImage from '../BlogImage';
 
-const ThoughtForm = () => {
+const blogPostForm = () => {
 
-  const [thoughtText, setThoughtText] = useState('');
-  const [thoughtTitle, setThoughtTitle] = useState('');
-  const [thoughtImage, setThoughtImage] = useState('');
+  const [blogPostText, setThoughtText] = useState('');
+  const [blogPostTitle, setThoughtTitle] = useState('');
+  const [blogPostImage, setThoughtImage] = useState('');
 
   const handleImage = savedURL => {
     setThoughtImage(savedURL);
@@ -52,7 +52,7 @@ const ThoughtForm = () => {
     try {
       // add thought to database
       await addThought({
-        variables: { thoughtTitle, thoughtImage, thoughtText }
+        variables: { blogPostTitle, blogPostImage, blogPostText }
       });
 
       // clear form value
@@ -86,7 +86,7 @@ const ThoughtForm = () => {
             {/* Blog title */}
             <div className="mb-6">
               <label for="title1" className="block mb-2 text-sm font-medium ">Blog Post Title</label>
-              <input type="text" name="title1" id="thoughtTitle" className="  border-2 border-pcGreen w-full p-3 mb-4 focus: outline-pcGreen rounded"
+              <input type="text" name="title1" id="blogPostTitle" className="  border-2 border-pcGreen w-full p-3 mb-4 focus: outline-pcGreen rounded"
                 onChange={handleChangeTitle}
               />
             </div>
@@ -101,7 +101,7 @@ const ThoughtForm = () => {
                   border-2 border-pcGreen p-3 mb-4 
                   focus: outline-pcGreen
                   rounded "
-                id="thoughtText"
+                id="blogPostText"
                 rows="5"
                 name="text"
                 onChange={handleChange}
@@ -118,4 +118,4 @@ const ThoughtForm = () => {
   );
 };
 
-export default ThoughtForm;
+export default blogPostForm;

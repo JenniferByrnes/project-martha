@@ -1,9 +1,9 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_THOUGHTS } from '../utils/queries';
-import ThoughtList from '../components/ThoughtList';
+import blogList from '../components/blogList';
 import Auth from '../utils/auth';
-import ThoughtForm from '../components/ThoughtForm';
+import blogPostForm from '../components/blogPostForm';
 
 const Blog = () => {
   // use useQuery hook to make query request
@@ -56,7 +56,7 @@ const Blog = () => {
             {loggedIn && (
               <div className="mb-3 ">
                 {/* logged in user can add post */}
-                <ThoughtForm />
+                <blogPostForm />
               </div>
             )}
             {/* Blog articles for all users. */}
@@ -67,7 +67,7 @@ const Blog = () => {
               {loading ? (
                 <div>Loading...</div>
               ) : (
-                <ThoughtList thoughts={thoughts} />
+                <blogList thoughts={thoughts} />
               )}
             </div>
           </div>

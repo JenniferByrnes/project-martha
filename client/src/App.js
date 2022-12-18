@@ -13,6 +13,7 @@ import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 import Home from './pages/Home';
 import Blog from './pages/Blog';
+import ForgotPassword from './pages/ForgotPassword';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -67,6 +68,10 @@ function App() {
             <Route
               path="/thought/:id"
               element={<SingleThought />}
+            />
+            <Route
+              path="/forgot-password"
+              element={<ForgotPassword />}
             />
             <Route
               path="*"

@@ -1,18 +1,18 @@
-const { Schema, model } = require('mongoose');
+//const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
 const thoughtSchema = new Schema(
   {
-    thoughtTitle: {
+    blogPostTitle: {
       type: String,
       required: 'This post needs a title',
       minlength: 1
     },
-    thoughtImage: {
+    blogPostImage: {
       type: String,
       minlength: 1
     },
-    thoughtText: {
+    blogPostText: {
       type: String,
       required: 'You need to leave a thought!',
       minlength: 1

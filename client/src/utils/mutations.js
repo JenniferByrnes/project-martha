@@ -25,12 +25,12 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_THOUGHT = gql`
-  mutation addThought($thoughtTitle: String!, $thoughtImage: String!, $thoughtText: String!) {
-    addThought(thoughtTitle: $thoughtTitle, thoughtImage: $thoughtImage, thoughtText: $thoughtText) {
+  mutation addThought($blogPostTitle: String!, $blogPostImage: String!, $blogPostText: String!) {
+    addThought(blogPostTitle: $blogPostTitle, blogPostImage: $blogPostImage, blogPostText: $blogPostText) {
       _id
-      thoughtTitle
-      thoughtImage
-      thoughtText
+      blogPostTitle
+      blogPostImage
+      blogPostText
       createdAt
       username
     }

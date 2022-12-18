@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
-import Auth from '../utils/auth';
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { db } from '../firebaseConfig'
+import { setDoc, doc } from '../firebase/firestore'
 import { Link } from 'react-router-dom';
 
 import image from '../assets/images/BurfordTogether.jpeg'
@@ -36,15 +38,22 @@ export default function Signup() {
 
     // use try/catch instead of promises to handle errors
     try {
+      const auth = getAuth()
+
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password)
+
+      const user = userCredential.user
+      console.log('userCredential.user = ');
+      console.log(user);
+
       // execute addUser mutation and pass in variable data from form
-
-
       const { data } = await addUser({
         variables: { ...formState }
       });
 
-      Auth.login(data.addUser.token);
-    } catch (e) {
+      // Auth.login(data.addUser.token);
+    } catch (error) {
+      console.log(error);
     }
   };
 

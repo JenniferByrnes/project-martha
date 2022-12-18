@@ -1,6 +1,6 @@
 // This code was mostly created by PedroTech in his tutorial on YouTube
 import { useState } from "react"
-import storage from "../../firebaseConfig"
+import db from "../../firebaseConfig"
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { v4 } from "uuid";
 
@@ -27,7 +27,7 @@ export default function BlogImage({ handleImage }) {
   const uploadFile = () => {
     if (!selectedImage) return;
     // add characters to the filename to make it unique with v4
-    const imageRef = ref(storage, `blogImages/${selectedImage.name + v4()}`);
+    const imageRef = ref(db, `blogImages/${selectedImage.name + v4()}`);
     // pass in the location and the image
     uploadBytes(imageRef, selectedImage).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((url) => {

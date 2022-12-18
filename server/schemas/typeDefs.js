@@ -13,9 +13,9 @@ const typeDefs = gql`
 
   type Thought {
     _id: ID
-    thoughtTitle: String
-    thoughtImage: String
-    thoughtText: String
+    blogPostTitle: String
+    blogPostImage: String
+    blogPostText: String
     createdAt: String
     username: String
   }
@@ -31,7 +31,7 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addThought(thoughtTitle: String!, thoughtImage: String!, thoughtText: String!): Thought
+    addThought(blogPostTitle: String!, blogPostImage: String!, blogPostText: String!): Thought
   }
 
   type Auth {

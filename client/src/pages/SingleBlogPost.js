@@ -28,13 +28,13 @@ const SingleThought = props => {
         {/* Card Image */}
         <img
           alt="blog inspiration"
-          src={thought.thoughtImage}
+          src={thought.blogPostImage}
           className="mx-auto "
         />
         {/* Card Body */}
         <div className="text-center">
-          <p className="text-2xl py-3">{thought.thoughtTitle}</p>
-          <p>{thought.thoughtText}</p>
+          <p className="text-2xl py-3">{thought.blogPostTitle}</p>
+          <p>{thought.blogPostText}</p>
           <p className="text-start pt-3 italic">
             {thought.createdAt}
           </p>
