@@ -5,8 +5,8 @@ import { useQuery } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 import Auth from '../utils/auth';
 
-import blogList from '../components/blogList';
-import blogPostForm from '../components/blogPostForm';
+import BlogList from '../components/BlogList';
+import BlogPostForm from '../components/BlogPostForm';
 
 const Profile = () => {
   const { username: userParam } = useParams();
@@ -44,10 +44,10 @@ const Profile = () => {
 
       <div className="flex-row justify-space-between mb-3">
         <div className="col-12 mb-3 col-lg-8">
-          <blogList thoughts={user.thoughts} title={`${user.username}'s thoughts...`} />
+          <BlogList thoughts={user.thoughts} title={`${user.username}'s thoughts...`} />
         </div>
       </div>
-      <div className="mb-3">{!userParam && <blogPostForm />}</div>
+      <div className="mb-3">{!userParam && <BlogPostForm />}</div>
     </div>
   );
 };

@@ -8,7 +8,7 @@ import Footer from './components/Footer';
 import Photos from './pages/Photos';
 import Login from './pages/Login';
 import NoMatch from './pages/NoMatch';
-import SingleThought from './pages/SingleThought';
+import SingleBlogPost from './pages/SingleBlogPost';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 import Home from './pages/Home';
@@ -67,7 +67,7 @@ function App() {
             </Route>
             <Route
               path="/thought/:id"
-              element={<SingleThought />}
+              element={<SingleBlogPost />}
             />
             <Route
               path="/forgot-password"

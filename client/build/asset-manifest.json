@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.2728db45.css",
-    "main.js": "/static/js/main.d81af656.js",
+    "main.css": "/static/css/main.7e3d9c7e.css",
+    "main.js": "/static/js/main.7eed3f10.js",
     "static/media/2.webp": "/static/media/2.55b5412edb32287f31c6.webp",
     "static/media/0.webp": "/static/media/0.e9bcb30c4808e95d8bdd.webp",
     "static/media/1.webp": "/static/media/1.597e74280d15cb8c46f7.webp",
@@ -15,11 +15,12 @@
     "static/media/JosefinSans-Bold.ttf": "/static/media/JosefinSans-Bold.a3a7c833253b917d3b74.ttf",
     "static/media/BurfordTogether.jpeg": "/static/media/BurfordTogether.434360b81a8446f0d5eb.jpeg",
     "index.html": "/index.html",
-    "main.2728db45.css.map": "/static/css/main.2728db45.css.map",
-    "main.d81af656.js.map": "/static/js/main.d81af656.js.map"
+    "static/media/visibilityIcon.svg": "/static/media/visibilityIcon.d42e2dff8b09be94d6d209f0e86cf2d3.svg",
+    "main.7e3d9c7e.css.map": "/static/css/main.7e3d9c7e.css.map",
+    "main.7eed3f10.js.map": "/static/js/main.7eed3f10.js.map"
   },
   "entrypoints": [
-    "static/css/main.2728db45.css",
-    "static/js/main.d81af656.js"
+    "static/css/main.7e3d9c7e.css",
+    "static/js/main.7eed3f10.js"
   ]
 }

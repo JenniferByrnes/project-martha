@@ -1,6 +1,6 @@
 // This code was mostly created by PedroTech in his tutorial on YouTube
 import { useState } from "react"
-import db from "../../firebaseConfig"
+import { db } from "../../firebaseConfig"
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { v4 } from "uuid";
 

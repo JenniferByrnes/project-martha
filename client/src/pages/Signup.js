@@ -3,7 +3,8 @@ import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { db } from '../firebaseConfig'
-import { setDoc, doc } from '../firebase/firestore'
+import { setDoc, doc } from 'firebase/firestore'
+import Auth from '../utils/auth';
 import { Link } from 'react-router-dom';
 
 import image from '../assets/images/BurfordTogether.jpeg'
@@ -14,11 +15,12 @@ export default function Signup() {
   // allows user to see password
   const [showPassword, setShowPassword] = useState(false)
 
-  const [formState, setFormState] = useState({ 
-    username: '', 
-    email: '', 
-    password: '' });
-    const { username, email, password } = formState
+  const [formState, setFormState] = useState({
+    username: '',
+    email: '',
+    password: ''
+  });
+  const { username, email, password } = formState
 
   const [addUser, { error }] = useMutation(ADD_USER);
 
@@ -38,20 +40,20 @@ export default function Signup() {
 
     // use try/catch instead of promises to handle errors
     try {
-      const auth = getAuth()
+      // const auth = getAuth()
 
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password)
+      // const userCredential = await createUserWithEmailAndPassword(auth, email, password)
 
-      const user = userCredential.user
-      console.log('userCredential.user = ');
-      console.log(user);
+      // const user = userCredential.user
+      // console.log('userCredential.user = ');
+      // console.log(user);
 
       // execute addUser mutation and pass in variable data from form
       const { data } = await addUser({
         variables: { ...formState }
       });
 
-      // Auth.login(data.addUser.token);
+      Auth.login(data.addUser.token);
     } catch (error) {
       console.log(error);
     }
@@ -74,24 +76,37 @@ export default function Signup() {
               Please provide an email and password - Martha
             </h1>
             {/* Form for input - contains submit button */}
-            <form className="space-y-4 md:space-y-6" onSubmit={handleFormSubmit}>
+            <form
+              className="space-y-4 md:space-y-6"
+              onSubmit={handleFormSubmit}>
               <div>
-                <label htmlFor="username"
+                <label
+                  htmlFor="username"
                   className="block mb-2 text-sm font-medium ">User Name</label>
-                <input type="text"
+                <input
+                  type="text"
                   name="username"
                   id="username"
                   className="form-field  mb-4 focus: outline-pcGreen"
                   onChange={handleChange} />
               </div>
               <div>
-                <label htmlFor="email" className="block mb-2 text-sm font-medium ">Your email</label>
-                <input type="email" name="email" id="email" className="form-field  mb-4 focus: outline-pcGreen" onChange={handleChange} />
+                <label
+                  htmlFor="email"
+                  className="block mb-2 text-sm font-medium "
+                >Your email</label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  className="form-field  mb-4 focus: outline-pcGreen"
+                  onChange={handleChange} />
               </div>
               {/* password input */}
               <div>
-                <label for="password" 
-                className="block mb-2 text-sm font-medium ">Password</label>
+                <label htmlFor="password"
+                  className="block mb-2 text-sm font-medium "
+                >Password</label>
                 <input
                   type={showPassword ? 'text' : 'password'}
                   name="password"
